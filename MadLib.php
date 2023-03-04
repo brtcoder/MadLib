@@ -8,10 +8,10 @@
 		Singular noun:
 		<input type="text" name="noun">
 		<br>
-		Verb         :
+		Verb:
 		<input type="text" name="verb">
 		<br>
-		Color      :
+		Color:
 		<input type="text" name="color">
 		<br>
 		Distance Unit:
