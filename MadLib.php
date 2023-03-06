@@ -8,10 +8,10 @@
 		Singular noun:
 		<input type="text" name="noun">
 		<br>
-		Verb:
+		Verb         :
 		<input type="text" name="verb">
 		<br>
-		Color:
+		Color      :
 		<input type="text" name="color">
 		<br>
 		Distance Unit:
@@ -19,29 +19,26 @@
 		<br>
 		<input type="submit" value="Submit">
 	</form>
-
 	<a href="madlib.php">Reset</a>
 	<br><br>
 
-<!--	<p>Best food is: <?= $_POST['noun']; ?> </p>
-		<p>Best color is: <?= $_POST['verb']; ?> </p> -->
-
 <?php
 
-function generateStory($singular_noun,$verb,$color,$distance_unit){
 
-      $story = "\nThe ${singular_noun}s are lovely, ${color} and deep.\nBut I have promises to keep,\nAnd ${distance_unit}s to go before I ${verb},\nAnd ${distance_unit}s to go before I ${verb}.\n";
-      return $story;
-};
+if (isset($_POST['noun'])) {
+	function generateStory($noun, $verb, $color, $unit)	{
+		
+			if (strlen(($_POST["noun"]))>0) {
+				$story = "\nThe ${noun}s are lovely, ${color} and deep.\nBut I have promises to keep,\nAnd ${unit}s to go before I ${verb},\nAnd ${unit}s to go before I ${verb}.\n";
+				return $story;
+			} else {
+				echo "Please fill out the form first.";
+			};
+	};
 
-echo "<pre>";
-echo "\n";
-echo "</pre>";
-
-	if (isset( $_POST['noun'] )) {
-		echo generateStory($_POST['noun'],$_POST['verb'],$_POST['color'],$_POST['unit']);
+	echo generateStory($_POST['noun'],$_POST['verb'],$_POST['color'],$_POST['unit']);
 	} else {
-		echo "Fill out the form first.";
+		echo "Please fill out the form.";
 	}
 
      ?>
